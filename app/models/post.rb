@@ -14,11 +14,10 @@ class Post < ActiveRecord::Base
 
 
     def clickbait?
-      
-      if !@PATTERNS.each {|p| 
-        p == title }
-        errors.add(:title, "not clickbait")
+      if CLICKBAIT_PATTERNS.none? { |pat| pat.match title }
+      errors.add(:title, "must be clickbait")
     end
+  end
 
   #must contain "Won't Believe", "Secret", "Top [number]", or "Guess"
 end
