@@ -14,13 +14,8 @@ class Post < ActiveRecord::Base
 
 
     def clickbait?
-      PATTERNS = [
-        /Won't Believe/i,
-        /Secret/i,
-        /Top [0-9]*/i,
-        /Guess/i
-      ]
-      if !title.includes? {|PATTERN| }  
+      
+      if @PATTERNS {|PATTERN| }  
         errors.add(:title, "not clickbait")
     end
 
