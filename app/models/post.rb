@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
 
     def clickbait?
       
-      if @PATTERNS {|PATTERN| }  
+      if @PATTERNS.each do |p|   
         errors.add(:title, "not clickbait")
     end
 
