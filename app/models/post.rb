@@ -14,10 +14,15 @@ class Post < ActiveRecord::Base
 
 
     def clickbait?
+      PATTERNS = [
+        /Won't Believe/i,
+        /Secret/i,
+        /Top [0-9]*/i,
+        /Guess/i
+      ]
   #    if !title.includes? { in: %w(Won't Believe Secret Top [number] Guess)
         errors.add(:title, "not clickbait")
     end
-
 
   #must contain "Won't Believe", "Secret", "Top [number]", or "Guess"
 end
